@@ -1,0 +1,157 @@
+/* =================================
+   NAVBAR MINIMAL ENHANCEMENTS
+   ================================= */
+
+/* Subtle improvements to the default Bootstrap navbar */
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Performance optimizations */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Remove all hover transform effects */
+.navbar-brand {
+  transition: color 0.2s ease;
+  /* Performance optimization */
+  will-change: color;
+}
+
+.navbar-brand:hover {
+  color: #3498db !important;
+}
+
+.nav-link {
+  transition: color 0.2s ease !important;
+  /* Performance optimization */
+  will-change: color;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Search Form Styling - Match site design */
+.navbar .form-control {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  padding: 0.5rem 1rem;
+  /* Performance optimization */
+  will-change: background, border-color;
+}
+
+.navbar .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar .form-control:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(52, 152, 219, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15);
+}
+
+.navbar .btn-outline-success {
+  border-radius: 10px;
+  background: rgba(52, 152, 219, 0.2);
+  border: 1.5px solid rgba(52, 152, 219, 0.6);
+  color: #5dade2;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  /* Performance optimization */
+  will-change: background, border-color, color;
+}
+
+.navbar .btn-outline-success:hover {
+  background: rgba(52, 152, 219, 0.3);
+  border-color: rgba(52, 152, 219, 0.8);
+  color: #85c1e9;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Smooth transitions for dropdown */
+.dropdown-menu {
+  transition: opacity 0.15s ease;
+  /* Performance optimization */
+  will-change: opacity;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    /* Performance optimization for mobile */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Reduce animations on mobile for better performance */
+  .navbar-brand,
+  .nav-link,
+  .navbar .form-control,
+  .navbar .btn-outline-success {
+    transition-duration: 0.15s;
+  }
+  
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    .navbar-brand:hover,
+    .nav-link:hover,
+    .navbar .btn-outline-success:hover {
+      transition: none;
+    }
+  }
+}
+
+/* Tablet optimizations */
+@media (max-width: 768px) {
+  .navbar {
+    /* Simplify box-shadow for better performance */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Reduce transition times on tablet */
+  .navbar-brand,
+  .nav-link,
+  .navbar .form-control,
+  .navbar .btn-outline-success,
+  .dropdown-menu {
+    transition-duration: 0.1s;
+  }
+}
+
+/* Small mobile optimizations */
+@media (max-width: 480px) {
+  .navbar {
+    /* Further simplify for small screens */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Disable all transitions on very small screens */
+  .navbar-brand,
+  .nav-link,
+  .navbar .form-control,
+  .navbar .btn-outline-success,
+  .dropdown-menu {
+    transition: none;
+  }
+  
+  /* Disable will-change on small screens to save memory */
+  .navbar,
+  .navbar-brand,
+  .nav-link,
+  .navbar .form-control,
+  .navbar .btn-outline-success,
+  .dropdown-menu {
+    will-change: auto;
+  }
+}
